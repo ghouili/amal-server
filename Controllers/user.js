@@ -21,7 +21,7 @@ const Ajouter = async (req, res) => {
 }
 
 const Register = async (req, res) => {
-    const { email, password, nom, prenom, type, sexe, tel, adress} = req.body;
+    const { email, password, nom, prenom, type, sexe, tel, adress, birthdate} = req.body;
     const hashedPass = await bcrypt.hash(password, 10);
 
     let avatar= 'avatar.png';
@@ -37,7 +37,8 @@ const Register = async (req, res) => {
         sexe, 
         tel, 
         adress,
-        avatar
+        avatar,
+        birthdate
     });
 
     try {
@@ -70,7 +71,7 @@ const login = async (req, res) => {
         return res.status(405).json({message: "check your Password!!"})
     }
 
-    return res.status(200).json({message: "Welcome", data: existinguser});
+    return res.status(200).json({message: "success", data: existinguser});
 
 }
 

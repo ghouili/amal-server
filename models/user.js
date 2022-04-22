@@ -9,6 +9,7 @@ const UserSchema = new mongoose.Schema({
     type:{type: String, required: true},
     sexe:{type: String, required: true},
     password:{type: String, required: true},
+    birthdate:{type: String, required: true},
     avatar:{type: String,},
     posts: [{ type: mongoose.Types.ObjectId, ref: 'post' }],
 })
